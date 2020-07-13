@@ -6,7 +6,7 @@
 
 //example of how to define a simple function. 
 function do_stuff(){
-	echo 'The function doesn\'t do much, but it did echo this line';
+	echo 'This simple function doesn\'t do much, but it did echo this line';
 	echo '<br>';
 	echo 'It also echoed this line. ';
 	echo 'We will learn more than just echo, I promise.';
