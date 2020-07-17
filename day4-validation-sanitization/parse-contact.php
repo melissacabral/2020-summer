@@ -40,8 +40,27 @@ if( $_POST['did_submit'] ){
 
 	//if valid, send mail, show feedback, etc
 	if( $valid ){
+		//send the mail
+		$to = 'mcabral@platt.edu';
+		$subject = "$name is reaching out to say: $reason";
+
+		$body = "Phone: $phone\n";
+		$body .= "Email: $email\n";
+		$body .= "Reason: $reason\n\n";
+		$body .= "$message";
+
+		$headers = "From: contact@melissacabral.com\r\n";
+		$headers .= "Reply-to: $email";
+
+		$mail_sent = mail( $to, $subject, $body, $headers );
+
 		//show feedback
-		$feedback = "Thank you for contacting me, $name.";
+		if( $mail_sent ){
+			$feedback = 'Thank you. Your message was sent successfully.';
+		}else{
+			$feedback = 'I\'m sorry, your message could not be sent at this time. Try again.';
+		}
+
 	}else{
 		//error feedback
 		$feedback = 'Your message could not be sent. Please fix the following:';

@@ -41,7 +41,10 @@ include( 'parse-contact.php' );
 		</form>
 	</div>
 
-	<div>
+	<div class="debug">
+		<h2>testing the body of the message</h2>
+		<pre><?php echo $body; ?></pre>
+
 		<h2>Cleaned up data:</h2>
 
 		<p>Name: <?php echo $name; ?></p>
@@ -49,12 +52,9 @@ include( 'parse-contact.php' );
 		<p>Phone: <?php echo $phone; ?></p>
 		<p>Reason: <?php echo $reason; ?></p>
 		<p>Message: <?php echo $message; ?></p>
-	</div>
+	
 
-
-
-	<div class="debug">
-		<h2>POST data:</h2>
+		<h2>Uncleaned POST data:</h2>
 		<pre><?php print_r($_POST); ?></pre>		
 	</div>
 
