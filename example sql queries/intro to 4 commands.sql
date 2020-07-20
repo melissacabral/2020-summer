@@ -62,8 +62,25 @@ SELECT *
 FROM categories
 LIMIT 5
 
-#Add another category called "pet photos"
+# Add another category called "pet photos"
 INSERT INTO categories
 ( name )
 VALUES
 ( 'pet photos' )
+
+# AGGREGATE FUNCTIONS - Count
+# get a count of all posts written by user 1
+SELECT COUNT(*) AS total
+FROM posts
+WHERE user_id = 1
+
+#get a count of how many published posts in each category
+SELECT COUNT(*) AS total, category_id
+FROM posts
+GROUP BY category_id
+
+# JOIN EXAMPLE 
+# get the titles of all posts, and the usernames of their authors
+SELECT posts.title, users.username
+FROM posts, users
+WHERE posts.user_id = users.user_id
