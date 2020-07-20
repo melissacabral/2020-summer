@@ -1,33 +1,50 @@
-<?php require( 'config.php' ); ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Image App: Home</title>
-</head>
-<body>
-	<h1>Welcome to Image App Home Page</h1>
+<?php require('config.php'); ?>
+<?php require('includes/header.php'); ?>
 
-	<?php 
-	//get all the posts
-	$sql = "SELECT title, image 
-			  FROM posts"; 
-	
-	//run it and catch the response (result)
+<main class="content">	
+
+	<?php //get the most recent 10 published posts, newest first
+	$sql = "SELECT post_id, image, title, body, date
+			FROM posts
+			WHERE is_published = 1
+			ORDER BY date DESC 
+			LIMIT 10";
+	//run it
 	$result = $db->query($sql);
-	
-	//check to see if posts were found
-	if( $result->num_rows > 0 ){
-	?>
-	<ul>
-		<?php //loop it
+	//check it (twice)
+	//check for big errors
+	if( ! $result ){
+		echo $db->error;
+	}
+	//are there rows (posts) found
+	if( $result->num_rows >= 1 ){
+		//loop it. 
 		while( $row = $result->fetch_assoc() ){
-		?>
-		<li>
-			<h2><?php echo $row['title']; ?></h2>
-			<img src="<?php echo $row['image']; ?>">
-		</li>
-		<?php } //end while loop ?>		
-	</ul>
-	<?php } //end if posts found ?>
-</body>
-</html>
+	?>
+	<div class="post">
+		<a href="SINGLE_URL">
+			<img src="<?php echo $row['image']; ?>">				
+		</a>
+		<span class="author">
+			<img src="PROFILE_PIC" width="50" height="50">
+			<span class="username">USERNAME</span>
+		</span>
+		<h2><?php echo $row['title']; ?></h2>
+		<p><?php echo $row['body']; ?></p>
+		<span class="category">CATEGORY_NAME</span>
+		<span class="date"><?php echo $row['date']; ?></span>
+	</div>
+	<?php 
+		} //end while
+
+		//free it (releases any resources or memory consumed by the query)
+		$result->free();
+	}else{
+		echo 'No New Posts';
+	}//end if posts
+	?>
+
+</main>
+
+<?php require('includes/sidebar.php'); ?>		
+<?php require('includes/footer.php'); ?>		
