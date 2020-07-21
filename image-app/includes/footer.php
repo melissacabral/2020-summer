@@ -3,5 +3,7 @@
 		</footer>
 		
 	</div> <!-- end div.site -->
+
+	<?php include('includes/debug-output.php'); ?>
 </body>
 </html>
