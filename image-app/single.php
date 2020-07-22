@@ -1,5 +1,6 @@
 <?php require('config.php'); ?>
 <?php require('includes/header.php'); ?>
+
 <?php 
 //Template for showing one single post and its comments
 // URL will look like /single.php?post_id=X
@@ -7,6 +8,8 @@
 //what post are we trying to show?
 $post_id = $_GET['post_id'];
 ?>
+<?php include( 'includes/comment-parse.php' ); ?>
+
 <main class="content">	
 
 	<?php //get the post we're trying to show
@@ -94,6 +97,8 @@ $post_id = $_GET['post_id'];
 
 	</section>
 	<?php } //end if ?>
+
+	<?php include( 'includes/comment-form.php' ); ?>
 </main>
 
 <?php require('includes/sidebar.php'); ?>		
