@@ -5,7 +5,7 @@
 // sanitize the phrase 
 $phrase = clean_string( $_GET['phrase'] );
 //get all the posts that contain the phrase (title or body)
-echo $sql = "SELECT post_id, image, title, date
+$sql = "SELECT post_id, image, title, date
 		FROM posts
 		WHERE ( title LIKE '%$phrase%' OR body LIKE '%$phrase%' )
 		AND is_published = 1

@@ -1,6 +1,9 @@
 TODO
 ====
 
+* add pagination to show 10 posts per page
+
+
 * make a function to count the number of approved comments on any post
 * make the comment form work with the real logged in user
 
@@ -20,3 +23,6 @@ DONE
 
 * make the comment form
 * parse the form - insert new comment into DB
+
+* Add Searchbar form
+* make search results template
