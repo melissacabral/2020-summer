@@ -36,3 +36,10 @@ function time_ago($datetime, $full = false) {
     if (!$full) $string = array_slice($string, 0, 1);
     echo $string ? implode(', ', $string) . ' ago' : 'just now';
 }
+
+//Sanitize any text field for the DB
+function clean_string( $dirty ){
+    global $db;
+    $clean = mysqli_real_escape_string( $db, filter_var( $dirty, FILTER_SANITIZE_STRING ) );
+    return $clean;
+}
