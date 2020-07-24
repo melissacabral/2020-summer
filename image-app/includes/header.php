@@ -17,7 +17,8 @@
 				<form class="searchform" method="get" action="search.php">
 					<label class="screen-reader-text">Search:</label>
 					<input type="search" name="phrase">
-
+					<input type="hidden" name="page" value="1">
+					
 					<input type="submit" value="Search">
 				</form>
 			</nav>

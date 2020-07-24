@@ -1,13 +1,12 @@
 TODO
 ====
 
-* add pagination to show 10 posts per page
-
 
 * make a function to count the number of approved comments on any post
+* fix single so that an empty post_id doesn't break the query 
+
 * make the comment form work with the real logged in user
 
-* fix single so that an empty post_id doesn't break the query 
 
 
 DONE
@@ -26,3 +25,5 @@ DONE
 
 * Add Searchbar form
 * make search results template
+
+* add pagination to show 10 posts per page
