@@ -2,7 +2,7 @@
 <?php require('includes/header.php'); ?>
 <?php 
 //search configuration - number of posts per page
-$per_page = 10;
+$per_page = 12;
 
 //search query parser
 // sanitize the phrase 
