@@ -62,11 +62,17 @@ if( isset($_POST['did_register']) ){
 	//if valid, add the new user to the DB & setup feedback 
 	if( $valid ){
 		//create user
-		//TODO: obscure the password
+		// add the salt (TODO: make this random for each user)
+		$salt = 'r5jhzgs m67Ujndfk,#$%mnb';
+		
+		$salted_pw = $password . $salt;
+		// sha1 secure hash algorithm one way
+		$hashed_password = sha1($salted_pw);
+		// hash the password
 		$sql = "INSERT INTO users
-				( username, email, password, is_admin, join_date )
+				( username, email, password, is_admin, join_date, salt )
 				VALUES 
-				( '$username', '$email', '$password', 0, now() )";
+				( '$username', '$email', '$hashed_password', 0, now(), '$salt' )";
 		//run it
 		$result = $db->query($sql);
 		//check it twice
