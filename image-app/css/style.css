@@ -103,11 +103,7 @@ h3{
 .searchform input[type=search]{
 	width:100%;
 }
-.header {
-	background: dimgray;
-	padding:1em;
-	color:white;
-}
+
 .searchform input[type=search]:focus{
 	background-color: rgba(255,255,255,.8);
 	color:black;
@@ -148,6 +144,35 @@ h3{
 	font-size:.8em;
 	color:var(--base-color);
 }
+.grid{
+	display: flex;
+	flex-wrap: wrap;
+
+}
+.grid .item{
+	width:20%;
+	min-width:150px;
+	margin:1em;
+}
+
+
+/*== form feedback system */
+.feedback{
+	background-color: beige;
+	padding:1em;
+	margin:1em 0;
+	max-width: 700px;
+}
+.error{
+	background-color: pink;
+}
+.success{
+	background-color: lightgreen;
+}
+.important-form{
+	max-width:600px;
+	margin:1em auto;
+}
 /* == Sidebar */
 .sidebar{
 	padding:1em;
@@ -165,7 +190,6 @@ h3{
 /* == Footer*/
 .header {
 	background: dimgray;
-	padding:1em;
 	color:white;
 }
 .footer {
@@ -190,9 +214,9 @@ input[type='email']:focus, input[type='number']:focus, input[type='password']:fo
 	.site {
 		display: grid;
 		grid-template-areas: 	"header" 
-								"content" 
-								"sidebar" 
-								"footer";
+		"content" 
+		"sidebar" 
+		"footer";
 	}
 	.header {
 		grid-area: header;
@@ -210,7 +234,7 @@ input[type='email']:focus, input[type='number']:focus, input[type='password']:fo
 	.main-navigation{
 		display: grid;
 		grid-template-areas: 	"search" 
-								"menu";
+		"menu";
 	}
 	.searchform{
 		grid-area:search;
@@ -218,15 +242,7 @@ input[type='email']:focus, input[type='number']:focus, input[type='password']:fo
 	.menu{
 		grid-area:menu;
 	}
-	@media screen and (min-width: 600px) {
-		.site {
-			grid-template-columns: 2fr  1fr;
-			/*grid-template-rows: 1fr 10fr 1fr;*/
-			grid-template-areas: "header  header"
-								"content  sidebar"
-								"content  sidebar"
-								"footer footer";
-		}
+	@media screen and (min-width: 700px) {
 		.main-navigation{
 			grid-template-columns: 1.5fr 1fr;
 			grid-template-areas:  "search menu";
@@ -237,8 +253,23 @@ input[type='email']:focus, input[type='number']:focus, input[type='password']:fo
 			justify-content: flex-start;
 		}
 		.searchform input[type=search]{
-			min-width: 320px;
-			width:auto;
+
+			max-width:320px;
 		}
+	}
+	@media screen and (min-width: 800px) {
+		.site {
+			grid-template-columns: 2fr  1fr;
+			/*grid-template-rows: 1fr 10fr 1fr;*/
+			grid-template-areas: "header  header"
+			"content  sidebar"
+			"content  sidebar"
+			"footer footer";
+		}
+		.main-navigation{
+			grid-template-columns:2fr 1fr;
+			grid-template-areas:  "search menu";
+		}
+		
 	}
 }
