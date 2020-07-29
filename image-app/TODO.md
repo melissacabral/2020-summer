@@ -3,6 +3,11 @@ TODO
 
 
 * Connect the login form
+* update old users in the database with hashed passwords and salts
+
+* MELISSA update the dummy data SQL 
+
+* add feedback css
 
 * add navigation to the site 
 
@@ -34,3 +39,4 @@ DONE
 * add pagination to show 10 posts per page
 
 * Build the user registration form
+* generate random salts in the register form

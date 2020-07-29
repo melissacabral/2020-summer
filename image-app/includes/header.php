@@ -21,5 +21,10 @@
 					
 					<input type="submit" value="Search">
 				</form>
+
+				<ul class="menu">
+					<li><a href="login.php">Log In</a></li>
+					<li><a href="register.php">Sign Up</a></li>
+				</ul>
 			</nav>
 		</header>

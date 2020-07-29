@@ -24,4 +24,5 @@ if(DEBUG_MODE){
 }else{
 	error_reporting(0);
 }
-?>
+//begin or resume the session
+session_start();

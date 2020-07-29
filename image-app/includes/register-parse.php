@@ -62,8 +62,8 @@ if( isset($_POST['did_register']) ){
 	//if valid, add the new user to the DB & setup feedback 
 	if( $valid ){
 		//create user
-		// add the salt (TODO: make this random for each user)
-		$salt = 'r5jhzgs m67Ujndfk,#$%mnb';
+		// add the salt 
+		$salt = bin2hex(random_bytes( 10 ));
 		
 		$salted_pw = $password . $salt;
 		// sha1 secure hash algorithm one way
