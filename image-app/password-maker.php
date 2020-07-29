@@ -13,6 +13,8 @@ error_reporting( E_ALL & ~E_NOTICE );
 </head>
 <body>
 <form method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
+	<label>user_id</label>
+	<input type="number" name="user_id">
 	<label>desired password</label>
 	<input type="text" name="password">
 	<br>
@@ -23,6 +25,7 @@ error_reporting( E_ALL & ~E_NOTICE );
 <?php 
 if(isset($_POST['password'])){
 	$password = $_POST['password'];
+	$user_id = $_POST['user_id'];
 	
 	if($password != ''){	
 
@@ -37,6 +40,9 @@ if(isset($_POST['password'])){
 			<p><?php echo $salt; ?></p>
 			<h3>Salted, Hashed password: </h3>
 			<p><?php echo $hashed; ?></p>
+			<hr>
+			<h3>UPDATE query</h3>
+			<p>UPDATE users SET salt = '<?php echo $salt; ?>', password = '<?php echo $hashed ?>' WHERE user_id = <?php echo $user_id; ?></p>
 		</div>
 <?php 
 	}else{
