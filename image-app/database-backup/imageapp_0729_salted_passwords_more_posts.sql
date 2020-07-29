@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 23, 2020 at 08:20 AM
+-- Generation Time: Jul 29, 2020 at 03:05 PM
 -- Server version: 10.1.39-MariaDB
 -- PHP Version: 7.3.5
 
@@ -112,8 +112,16 @@ CREATE TABLE `posts` (
 
 INSERT INTO `posts` (`post_id`, `image`, `body`, `date`, `title`, `category_id`, `user_id`, `allow_comments`, `is_published`) VALUES
 (1, 'https://picsum.photos/id/237/600', 'It\'s a puppy', '2020-07-17 08:39:10', 'Black lab pup', 1, 1, 1, 1),
-(2, 'https://picsum.photos/id/1025/600', 'so cozy', '2020-07-17 08:39:10', 'Pug in a blanket', 2, 2, 1, 1),
-(3, 'https://picsum.photos/id/1012/600', 'It\'s a guy and his pup', '2020-07-20 09:18:13', 'Happy Monday', 1, 1, 1, 1);
+(2, 'https://picsum.photos/id/1023/600', 'apparently you can climb trees on a mountainbike', '2020-07-17 08:39:10', 'climbing trees', 2, 2, 1, 1),
+(3, 'https://picsum.photos/id/1018/600', 'you can almost smell the rain in this image', '2020-07-18 09:18:13', 'mountain road', 2, 16, 1, 1),
+(4, 'https://picsum.photos/id/1015/600', 'super saturated colors in this one', '2020-07-19 08:39:10', 'River landscape', 2, 1, 1, 1),
+(5, 'https://picsum.photos/id/1011/600', 'I think it\'s a canoe', '2020-07-20 08:39:10', 'woman in a canoe', 1, 2, 0, 1),
+(6, 'https://picsum.photos/id/1003/600', 'It\'s a little deer fawn', '2020-07-20 09:18:13', 'Quiet morning', 3, 14, 1, 1),
+(7, 'https://picsum.photos/id/0/600', 'makes you think of getting work done', '2020-07-21 08:39:10', 'laptop on a desk with coffee', 6, 1, 1, 1),
+(8, 'https://picsum.photos/id/1025/600', 'so cozy', '2020-07-22 08:39:10', 'Pug in a blanket', 3, 2, 1, 1),
+(9, 'https://picsum.photos/id/1012/600', 'It\'s a guy and his pup', '2020-07-22 09:18:13', 'Happy Monday', 3, 15, 1, 1),
+(10, 'https://picsum.photos/id/100/600', 'sort of spooky', '2020-07-23 08:39:10', 'washed out beach', 2, 3, 0, 1),
+(11, 'https://picsum.photos/id/10/600', 'so cozy', '2020-07-23 08:39:10', 'Forest view', 2, 2, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -142,19 +150,21 @@ CREATE TABLE `users` (
   `profile_pic` varchar(100) NOT NULL,
   `bio` varchar(400) NOT NULL,
   `is_admin` tinyint(1) NOT NULL,
-  `join_date` datetime NOT NULL
+  `join_date` datetime NOT NULL,
+  `salt` varchar(40) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `username`, `email`, `password`, `profile_pic`, `bio`, `is_admin`, `join_date`) VALUES
-(1, 'Melissa', 'mcabral@gmail.com', 'password', 'https://randomuser.me/api/portraits/lego/9.jpg', 'I like food, bye', 1, '2020-07-17 08:23:27'),
-(2, 'Somebody Else', 'random@email.com', 'password', 'https://randomuser.me/api/portraits/men/66.jpg', 'just a made up non-admin user', 0, '2020-07-17 08:27:28'),
-(3, 'egglady', 'breakfast@gmail.com', '123456789', 'https://randomuser.me/api/portraits/women/46.jpg', 'I am an egg', 0, '2020-07-22 08:25:34'),
-(4, 'chloe', 'chloe@gmail.com', '123456789', 'https://randomuser.me/api/portraits/women/28.jpg', 'I am chloeg', 0, '2020-07-22 08:29:44'),
-(6, 'roberto', 'roberto.schmidt@example.com', 'password', 'https://randomuser.me/api/portraits/men/35.jpg', '', 0, '2020-07-22 08:34:16');
+INSERT INTO `users` (`user_id`, `username`, `email`, `password`, `profile_pic`, `bio`, `is_admin`, `join_date`, `salt`) VALUES
+(1, 'Administrator', 'admin@imageapp.com', 'ae1a133e16d23fc0c8c55d964e1bc5b21748cadb', 'https://randomuser.me/api/portraits/lego/9.jpg', 'I like food, bye', 1, '2020-07-17 08:23:27', '103547f50eca783e808f'),
+(2, 'Felix Graham', 'random@email.com', '982f163c47eda80cc1063cbf9ed94831456c55fc', 'https://randomuser.me/api/portraits/men/66.jpg', 'just a made up non-admin user', 0, '2020-07-17 08:27:28', '502b91c21b448b8e9b16'),
+(3, 'Marilyn Lowe', 'breakfast@gmail.com', '53b866d6ba09d3931ffc5b1898a546d20d943e59', 'https://randomuser.me/api/portraits/women/46.jpg', 'I am an egg', 0, '2020-07-22 08:25:34', '38c355b22fe384b7c3e4'),
+(14, 'Stephanie Olson', 'random877@mail.com', 'f4e65eff5ea57f49b850cb0139df981b1076eb8b', 'https://randomuser.me/api/portraits/women/26.jpg', '', 0, '2020-07-29 08:14:59', '8e653e348334db3b1195'),
+(15, 'Vernon Howard ', 'random2354@mail.com', '1933d6a59e0129dd29442fd6e30a39368a3afea9', 'https://randomuser.me/api/portraits/men/55.jpg', '', 0, '2020-07-29 08:16:28', 'd1dc7bf830cf1a8cf6be'),
+(16, 'AntoniaHarris', 'avocado@mail.com', '417daffa8366350887ee120999276caefe7c66dd', 'https://randomuser.me/api/portraits/women/70.jpg', '', 0, '2020-07-29 09:36:32', '0ab0f8f4daac36e74595');
 
 --
 -- Indexes for dumped tables
@@ -222,7 +232,7 @@ ALTER TABLE `likes`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `post_id` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `post_id` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `tags`
@@ -234,7 +244,7 @@ ALTER TABLE `tags`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `user_id` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
