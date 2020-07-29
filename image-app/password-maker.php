@@ -2,6 +2,9 @@
 //this file uses random_bytes( 10 ) to generate random salts!
 //https://www.php.net/manual/en/function.random-bytes.php
 
+//CONFIGURATION
+$password_min = 8;
+
 error_reporting( E_ALL & ~E_NOTICE );
 ?>
 <!DOCTYPE html>
@@ -17,6 +20,7 @@ error_reporting( E_ALL & ~E_NOTICE );
 	<input type="number" name="user_id">
 	<label>desired password</label>
 	<input type="text" name="password">
+	<div class="hint">Minimum length: <?php echo $password_min; ?> characters.</div>
 	<br>
 	<input type="submit" value="generate">
 </form>
@@ -27,7 +31,7 @@ if(isset($_POST['password'])){
 	$password = $_POST['password'];
 	$user_id = $_POST['user_id'];
 	
-	if($password != ''){	
+	if(  strlen( $password ) >= $password_min ){	
 
 		$salt = bin2hex(random_bytes( 10 )); 
 
@@ -46,7 +50,7 @@ if(isset($_POST['password'])){
 		</div>
 <?php 
 	}else{
-		echo '<p>Oops, blank password.</p>';
+		echo '<p>Oops, incorrect password length.</p>';
 	}
 } 
 ?>

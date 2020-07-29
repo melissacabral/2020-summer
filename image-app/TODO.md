@@ -1,15 +1,11 @@
 TODO
 ====
 
-
-* Connect the login form
-* update old users in the database with hashed passwords and salts
+* Make the log out button work 
 
 * MELISSA update the dummy data SQL 
 
 * add feedback css
-
-* add navigation to the site 
 
 
 * make a function to count the number of approved comments on any post
@@ -40,3 +36,7 @@ DONE
 
 * Build the user registration form
 * generate random salts in the register form
+* update old users in the database with hashed passwords and salts
+* add navigation to the site 
+
+* Connect the login form
