@@ -14,12 +14,11 @@
 	<div class="container important-form">
 		<h1>Log In</h1>
 
-		<?php 
-	//if there is feedback, show it
-		if( isset( $feedback ) ){
-			echo "<b>$feedback</b>";
-		}
-		?>
+		<?php if( isset( $feedback ) ){ ?>
+		<div class="feedback error">
+			<h2><?php echo $feedback; ?></h2>
+		</div>
+		<?php } ?>
 
 		<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
 			<label>Username</label>

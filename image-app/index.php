@@ -11,7 +11,7 @@
 				AND posts.user_id = users.user_id
 				AND posts.category_id = categories.category_id
 			ORDER BY posts.date DESC 
-			LIMIT 10";
+			LIMIT 8";
 	//run it
 	$result = $db->query($sql);
 	//check it (twice)

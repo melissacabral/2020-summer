@@ -77,13 +77,13 @@ if( isset( $_POST['did_submit'] ) ){
 				//redirect to home page
 				header( 'Location:index.php' );
 			}else{
-				$feedback = 'Incorrect username/password combo. (password wrong)';
+				$feedback = 'Incorrect username/password combo.';
 			}
 
 		}//end while
 	}else{
 		//no user with that name
-		$feedback = 'Incorrect username/password combo. (username wrong)';
+		$feedback = 'Incorrect username/password combo';
 	} //end if username found
 	
 } //end of form parser
