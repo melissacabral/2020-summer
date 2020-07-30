@@ -1,5 +1,6 @@
-<?php //TODO: make this only visible if logged in ?>
-
+<?php 
+if( $logged_in_user ){
+?>
 <section class="comment-form" id="reply">
 	<h2>Leave a comment</h2>
 
@@ -18,3 +19,8 @@
 	</form>
 	
 </section>
+
+<?php } //end if logged in
+else{
+	echo 'Please log in to comment.';
+} ?>

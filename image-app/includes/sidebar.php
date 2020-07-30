@@ -1,7 +1,7 @@
 <aside class="sidebar">	
 	
 	<?php //get the 5 most recently registered users 
-	$sql = "SELECT username, profile_pic
+	$sql = "SELECT username, profile_pic, user_id
 			FROM users
 			ORDER BY join_date DESC
 			LIMIT 5";
@@ -19,8 +19,10 @@
 		<ul>
 			<?php while( $row = $result->fetch_assoc() ){ ?>
 			<li class="user">
-				<img src="<?php echo $row['profile_pic']; ?>" width="50" height="50">
-				<?php echo $row['username']; ?>
+				<a href="profile.php?user_id=<?php echo $row['user_id']; ?>">
+					<img src="<?php echo $row['profile_pic']; ?>" width="50" height="50">
+					<?php echo $row['username']; ?>
+				</a>
 			</li>
 			<?php } //end while
 			//free the results

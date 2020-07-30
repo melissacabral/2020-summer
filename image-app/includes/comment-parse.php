@@ -3,8 +3,8 @@
 if( isset( $_POST['did_comment'] ) ){
 	//sanitize everything
 	$body = mysqli_real_escape_string( $db, filter_var( $_POST['body'], FILTER_SANITIZE_STRING ) );
-	//TODO: this is a temporary fake logged in user. remove this when we build the login
-	$user_id = 1;
+	
+	$user_id = $logged_in_user['user_id'];
 
 	//validate - body cannot be blank
 	$valid = true;

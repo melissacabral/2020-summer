@@ -1,4 +1,7 @@
-<?php require_once( 'includes/functions.php' ); ?>
+<?php require_once( 'includes/functions.php' ); 
+
+$logged_in_user = check_login();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,8 +26,21 @@
 				</form>
 
 				<ul class="menu">
+					<?php if( $logged_in_user ){ ?>
+					<li><a href="#">New Post</a></li>
+					<li>
+						<a href="profile.php">
+						<?php echo $logged_in_user['username']; ?>'s account
+						</a>
+					</li>
+					<li><a href="login.php?intent=logout">Log Out</a></li>
+					
+					<?php }else{ ?>
 					<li><a href="login.php">Log In</a></li>
 					<li><a href="register.php">Sign Up</a></li>
+					
+					<?php } ?>
+
 				</ul>
 			</nav>
 		</header>

@@ -1,17 +1,12 @@
 TODO
 ====
 
-* Make the log out button work 
+* create the first draft of the user profile
 
-* MELISSA update the dummy data SQL 
-
-* add feedback css
 
 
 * make a function to count the number of approved comments on any post
 * fix single so that an empty post_id doesn't break the query 
-
-* make the comment form work with the real logged in user
 
 
 
@@ -40,3 +35,9 @@ DONE
 * add navigation to the site 
 
 * Connect the login form
+* update dummy data
+* add feedback css
+* make a function to check for a valid login on "every" page
+* Make the log out button work 
+
+* make the comment form work with the real logged in user

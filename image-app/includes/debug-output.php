@@ -1,5 +1,10 @@
 <?php if( DEBUG_MODE ){ ?>
-<div class="debug-output">		
+<div class="debug-output">
+	<?php if( isset($logged_in_user) ){ ?>
+	<h2>Logged in User info</h2>
+	<pre><?php print_r( $logged_in_user ); ?></pre>
+	<?php } ?>
+
 	<h2>POST data:</h2>
 	<pre><?php print_r( $_POST ); ?></pre>
 
