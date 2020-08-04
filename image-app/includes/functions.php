@@ -102,3 +102,23 @@ function check_login(){
         return false;
     }
 }
+
+//Display the image for any post at "any" size (small, medium or large)
+function display_post_image( $post_id, $size = 'medium' ){
+    global $db;
+    $sql = "SELECT image, title
+            FROM posts 
+            WHERE post_id = $post_id
+            LIMIT 1";
+    $result = $db->query( $sql );
+    if( ! $result ){
+        echo $db->error;
+    }
+    if( $result->num_rows >= 1 ){
+        $row = $result->fetch_assoc();
+        //display the image
+        $url = 'uploads/' . $row['image'] . '_' . $size . '.jpg';
+        $alt = $row['title'];
+        echo "<img src='$url' alt='$alt' class='$size'>";
+    }
+}
