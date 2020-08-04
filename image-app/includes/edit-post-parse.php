@@ -4,7 +4,7 @@ if( isset( $_POST['did_edit'] ) ){
 	//clean everything
 	$title 			= clean_string( $_POST['title'] );
 	$body 			= clean_string( $_POST['body'] );
-	$category 		= clean_int( $_POST['category_id'] );
+	$category_id 	= clean_int( $_POST['category_id'] );
 	$allow_comments = clean_boolean( $_POST['allow_comments'] );
 	
 	//validate!

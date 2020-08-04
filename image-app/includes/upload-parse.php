@@ -102,7 +102,9 @@ if( $_POST['did_upload'] ){
 			if( $db->affected_rows >= 1 ){
 				//success
 				$feedback = 'Success!';
-				//TODO: redirect to step 2
+				$post_id = $db->insert_id;
+				//redirect to step 2
+				header( "Location:edit-post.php?post_id=$post_id" );
 			}else{
 				//error
 				$feedback = 'There was a problem with the Database.';
