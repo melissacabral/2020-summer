@@ -27,7 +27,7 @@ $logged_in_user = check_login();
 
 				<ul class="menu">
 					<?php if( $logged_in_user ){ ?>
-					<li><a href="#">New Post</a></li>
+					<li><a href="new-post.php">New Post</a></li>
 					<li>
 						<a href="profile.php">
 						<?php echo $logged_in_user['username']; ?>'s account

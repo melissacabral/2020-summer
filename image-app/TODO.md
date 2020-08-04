@@ -1,14 +1,13 @@
 TODO
 ====
 
-* create the first draft of the user profile
-
+* Create "New post" page for logged in users (step 1)
+* upload images & add post to DB
+* create "edit post" page (step 2)
 
 
 * make a function to count the number of approved comments on any post
 * fix single so that an empty post_id doesn't break the query 
-
-
 
 DONE
 ====
@@ -41,3 +40,4 @@ DONE
 * Make the log out button work 
 
 * make the comment form work with the real logged in user
+* create the first draft of the user profile
