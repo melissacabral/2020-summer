@@ -34,7 +34,7 @@
 
 
 	<?php //get all the categories in alphabetical order
-	$sql = "SELECT categories.name, COUNT(*) AS total
+	$sql = "SELECT categories.*, COUNT(*) AS total
 			FROM posts, categories
 			WHERE posts.category_id = categories.category_id
 			GROUP BY posts.category_id";
@@ -51,7 +51,9 @@
 		<ul>			
 			<?php while( $row = $result->fetch_assoc() ){ ?>
 			<li>
-				<?php echo $row['name']; ?> (<?php echo $row['total']; ?>)	
+				<a href="category.php?cat_id=<?php echo $row['category_id']; ?>">
+					<?php echo $row['name']; ?> (<?php echo $row['total']; ?>)	
+				</a>
 			</li>
 			<?php } //end while
 			$result->free(); ?>			

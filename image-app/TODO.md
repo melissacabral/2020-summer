@@ -1,7 +1,7 @@
 TODO
 ====
-* add the category template
-* display posts on user profile
+
+
 
 
 DONE
@@ -50,3 +50,6 @@ DONE
 
 * make a function to count the number of approved comments on any post
 * fix single so that an empty post_id doesn't break the query 
+
+* display posts on user profile
+* add the category template
