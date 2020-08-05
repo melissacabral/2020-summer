@@ -91,3 +91,4 @@
 		</ul>
 	</section>
 	<?php } //end if row found ?>
+</aside>
