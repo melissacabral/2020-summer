@@ -60,17 +60,34 @@
 	<?php } //end if row found ?>
 
 
-
-
-<?php //get the 5 most recent approved comments, newest first
-	//bonus: make it a join and get the comment author's name ?>
+	<?php //get the 5 most recent approved comments, newest first
+	//bonus: make it a join and get the comment author's name $sql = "SELECT categories.name, COUNT(*) AS total
+	$sql = "SELECT comments.body, users.username, comments.post_id
+			FROM comments, users
+			WHERE comments.user_id = users.user_id
+			AND comments.is_approved = 1
+			ORDER BY date DESC
+			LIMIT 5";
+	$result = $db->query($sql);
+	//check for error
+	if( !$result ){
+		echo $db->error;
+	}
+	//check for	at least 1 row found
+	if( $result->num_rows >= 1 ){
+	?>
 	<section class="comments">
 		<h2>Recent Comments:</h2>
 		<ul>			
+			<?php while( $row = $result->fetch_assoc() ){ ?>
 			<li>
-				<span class="username">USERNAME</span> said:
-				<span class="commentbody">BODY</span>
+				<b><?php echo $row['username']; ?></b> said: 
+				<a href="single.php?post_id=<?php echo $row['post_id']; ?>">
+				<?php echo substr($row['body'], 0, 20); ?> &hellip;
+				</a>
 			</li>
+			<?php } //end while
+			$result->free(); ?>			
 		</ul>
 	</section>
-</aside>
+	<?php } //end if row found ?>

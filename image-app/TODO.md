@@ -1,12 +1,8 @@
 TODO
 ====
+* add the category template
+* display posts on user profile
 
-
-
-
-
-* make a function to count the number of approved comments on any post
-* fix single so that an empty post_id doesn't break the query 
 
 DONE
 ====
@@ -51,3 +47,6 @@ DONE
 
 * fix all the "old" images
 * display the edit button when viewing your post
+
+* make a function to count the number of approved comments on any post
+* fix single so that an empty post_id doesn't break the query 

@@ -34,6 +34,7 @@
 		</span>
 		<h2><?php echo $row['title']; ?></h2>
 		<p><?php echo $row['body']; ?></p>
+		<span class="comment-count"><?php count_comments( $row['post_id'] ); ?></span>
 		<span class="category"><?php echo $row['name']; ?></span>
 		<span class="date"><?php time_ago( $row['date'] ); ?></span>
 	</div>
