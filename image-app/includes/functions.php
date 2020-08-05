@@ -122,3 +122,16 @@ function display_post_image( $post_id, $size = 'medium' ){
         echo "<img src='$url' alt='$alt' class='$size'>";
     }
 }
+
+//form input helpers - checkboxes and dropdowns
+function checked( $a, $b ){
+    if( $a == $b ){
+        echo 'checked';
+    }
+}
+
+function selected( $a, $b ){
+    if( $a == $b ){
+        echo 'selected';
+    }
+}

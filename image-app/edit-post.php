@@ -12,6 +12,24 @@ $post_id = clean_int( $_GET['post_id'] );
 $user_id = $logged_in_user['user_id'];
 
 require('includes/edit-post-parse.php');
+
+//pre-fill the form with the current post content
+$sql = "SELECT * FROM posts
+		WHERE post_id = $post_id
+		AND user_id = $user_id
+		LIMIT 1";
+$result = $db->query( $sql );
+if( ! $result ){
+	die( $db->error );
+}
+if( $result->num_rows >= 1 ){
+	while($row = $result->fetch_assoc()){
+		//make variables like $title, $body, $date
+		extract($row);
+	}
+}else{
+	die( 'You\'re not the owner of this post' );
+}
 ?>
 
 <main class="content">	
@@ -34,14 +52,14 @@ require('includes/edit-post-parse.php');
 
 		</div>
 		<?php } //end if feedback isset ?>
-		
+
 
 		<form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
 			<label>Title</label>
-			<input type="text" name="title">
+			<input type="text" name="title" value="<?php echo $title; ?>">
 
 			<label>Caption</label>
-			<textarea name="body"></textarea>
+			<textarea name="body"><?php echo $body; ?></textarea>
 
 			<?php //get all the categories in alphabetical order by name
 			$sql = "SELECT * FROM categories
@@ -56,7 +74,7 @@ require('includes/edit-post-parse.php');
 			<select name="category_id">
 				<option>Choose a category</option>
 				<?php while( $row = $result->fetch_assoc() ){ ?>
-				<option value="<?php echo $row['category_id']; ?>">
+				<option value="<?php echo $row['category_id']; ?>" <?php selected( $category_id, $row['category_id'] ); ?>>
 					<?php echo $row['name']; ?>
 				</option>
 				<?php } //end while ?>
@@ -65,7 +83,7 @@ require('includes/edit-post-parse.php');
 
 
 			<label>
-				<input type="checkbox" name="allow_comments" value="1">
+				<input type="checkbox" name="allow_comments" value="1" <?php checked( $allow_comments, 1 ); ?>>
 				Allow comments on this post
 			</label>
 

@@ -13,7 +13,7 @@ $post_id = $_GET['post_id'];
 <main class="content">	
 
 	<?php //get the post we're trying to show
-	$sql = "SELECT posts.post_id, posts.image, posts.title, posts.body, posts.date, users.username, users.profile_pic, 
+	$sql = "SELECT posts.post_id, posts.image, posts.title, posts.body, posts.date, users.user_id, users.username, users.profile_pic, 
 					categories.*
 			FROM posts, users, categories
 			WHERE posts.is_published = 1
@@ -36,7 +36,12 @@ $post_id = $_GET['post_id'];
 	?>
 	<div class="post">
 		
-		<img src="<?php echo $row['image']; ?>">				
+		<?php display_post_image(  $row['post_id'], 'large' ); ?>		
+
+		<?php if( $logged_in_user['user_id'] == $row['user_id'] ){ ?>
+		<a href="edit-post.php?post_id=<?php echo $row['post_id']; ?>">Edit</a>	
+		<?php } ?>
+
 		
 		<span class="author">
 			<img src="<?php echo $row['profile_pic']; ?>" width="50" height="50">

@@ -26,7 +26,7 @@
 	?>
 	<div class="post">
 		<a href="single.php?post_id=<?php echo $row['post_id']; ?>">
-			<img src="<?php echo $row['image']; ?>">				
+			<?php display_post_image(  $row['post_id'], 'large' ); ?>				
 		</a>
 		<span class="author">
 			<img src="<?php echo $row['profile_pic']; ?>" width="50" height="50">

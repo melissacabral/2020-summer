@@ -1,9 +1,8 @@
 TODO
 ====
 
-* Create "New post" page for logged in users (step 1)
-* upload images & add post to DB
-* create "edit post" page (step 2)
+
+
 
 
 * make a function to count the number of approved comments on any post
@@ -41,3 +40,14 @@ DONE
 
 * make the comment form work with the real logged in user
 * create the first draft of the user profile
+
+* Create "New post" page for logged in users (step 1)
+* upload images & add post to DB
+
+* make a function to display the post image at any size
+* create "edit post" page (step 2)
+	* pre-fill the form with existing values
+	* update existing post with title, body, category and set to published
+
+* fix all the "old" images
+* display the edit button when viewing your post

@@ -53,7 +53,7 @@ if( !$result ){
 		<?php while( $row = $result->fetch_assoc() ){ ?>
 		<div class="item">
 			<a href="single.php?post_id=<?php echo $row['post_id']; ?>">
-				<img src="<?php echo $row['image']; ?>" width="150" height="150">
+				<?php display_post_image(  $row['post_id'], 'small' ); ?>
 			</a>
 			<h3><?php echo $row['title']; ?></h3>
 			<span class="date"><?php nice_date( $row['date'] ); ?></span>
