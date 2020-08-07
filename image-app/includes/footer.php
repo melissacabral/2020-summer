@@ -10,8 +10,6 @@
 
 	<script type="text/javascript">
 
-		console.log('hello world');
-
 		//when the user clicks a heart button, do stuff
 		$('.likes').on( 'click', '.heart-button', function(){
 			//which post and which user?
@@ -20,8 +18,25 @@
 
 			//test!
 			console.log( postId, userId );
+			
+			//keep track of which HTML heart was clicked
+			var likes_container = $(this).parents('.likes');
 
-		} );
+			//do the ajax call!
+			$.ajax({
+				method: 'GET',
+				url: 'ajax-handlers/like-unlike.php',
+				data: { 'userId' : userId, 'postId': postId },
+				success: function( response ){
+					//update the interface
+					likes_container.html(response);
+				},
+				error: function(){
+					console.log('ajax error');
+				}
+			});			
+
+		}); //end of click event 
 	</script>
 </body>
 </html>
