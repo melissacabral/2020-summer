@@ -14,7 +14,7 @@ Table of Contents:
 	--light-text:	white;
 	--text-color:	#393939;
 	--accent-color: tomato;
-	--link-color:	dodgerblue;
+	--link-color:	#1A5EA0;
 	--medium-color: #BBBBBB;
 	--light-color: 	#eee;
 	--shadow:2px 3px 6px rgba(0,0,0,.2);
@@ -198,6 +198,12 @@ h3{
 	color:white;
 }
 /* ==Milligram recolor */
+a{
+	color:var(--link-color);
+}
+a:hover{
+	color:var(--accent-color);
+}
 .button, button, input[type='button'], input[type='reset'], input[type='submit']{
 	background-color:var(--accent-color);
 	border-color:var(--accent-color);
@@ -272,4 +278,22 @@ input[type='email']:focus, input[type='number']:focus, input[type='password']:fo
 		}
 		
 	}
+}
+
+/* likes - default "not-liked" gray heart */
+.heart-button{
+	color:white;
+	text-shadow: -1px -1px 0 gray,
+				  1px  1px 0 gray,
+				 -1px  1px 0 gray,
+				  1px -1px 0 gray;
+
+	-webkit-text-stroke: 1px gray;
+	cursor:pointer;
+}
+/* like: red heart */
+.you-like .heart-button{
+	color:red;
+	text-shadow:none;
+	-webkit-text-stroke: 1px red;
 }

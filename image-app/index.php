@@ -28,6 +28,13 @@
 		<a href="single.php?post_id=<?php echo $row['post_id']; ?>">
 			<?php display_post_image(  $row['post_id'], 'large' ); ?>				
 		</a>
+
+		<div class="likes">
+			
+			<?php like_interface( $row['post_id'], $logged_in_user['user_id'] ); ?>
+
+		</div>
+
 		<span class="author">
 			<img src="<?php echo $row['profile_pic']; ?>" width="50" height="50">
 			<span class="username"><?php echo $row['username']; ?></span>
